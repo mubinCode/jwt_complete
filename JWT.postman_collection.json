@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "a94d70fd-81ea-42e3-981f-05f8e2e848b3",
+		"name": "JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13343241"
+	},
+	"item": [
+		{
+			"name": "add_admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"abdullah\",\r\n    \"email\":\"ab@mail.com\",\r\n    \"password\":\"ab123\",\r\n    \"roles\":\"ROLE_ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/auth/addNewUser",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"auth",
+						"addNewUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"abdullah\",\r\n    \"password\":\"ab123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/auth/generateToken",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"auth",
+						"generateToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmR1bGxhaCIsImlhdCI6MTY5OTA4NzUzOCwiZXhwIjoxNjk5MDg5MzM4fQ.pmFXNg19qiXSEMVrU-lEC4QMK9YjKk7ClraOCe8-qv4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"abdullah\",\r\n    \"password\":\"ab123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/auth/admin/adminProfile",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"auth",
+						"admin",
+						"adminProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_restriction",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmR1bGxhaCIsImlhdCI6MTY5OTA4NzUzOCwiZXhwIjoxNjk5MDg5MzM4fQ.pmFXNg19qiXSEMVrU-lEC4QMK9YjKk7ClraOCe8-qv4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/auth/user/userProfile",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"auth",
+						"user",
+						"userProfile"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
